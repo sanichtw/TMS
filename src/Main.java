@@ -19,7 +19,6 @@ public class Main {
         countProgrammes(); // №7. В зависимости от количества программистов необходимо вывести правильно окончание.
     }
 
-
      // №1. Вывести на экран сколько в этом числе цифр и положительное оно или отрицательное.
     static void checkNumber() {
         Scanner scanner = new Scanner(System.in);
