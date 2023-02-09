@@ -64,7 +64,7 @@ public class Main {
             number++;
             System.out.println(number);
         } else if (number < 0) {
-            number--;
+            number -= 2;
             System.out.println(number);
         } else {
             number = 10;
