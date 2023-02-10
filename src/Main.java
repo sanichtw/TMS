@@ -232,7 +232,4 @@ public class Main {
         System.out.println(Arrays.toString(names));
         System.out.println("______________________");
     }
-
-
-
 }
