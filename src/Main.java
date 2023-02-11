@@ -91,7 +91,7 @@ public class Main {
         }
         // the result is output to the console
         if (arrayList.size() < arrayOfIntegers.length) {
-            System.out.println(randomInt + "deleted from " + arrayList);
+            System.out.println(randomInt + " deleted from " + arrayList);
             System.out.println(arrayList);
         } else {
             System.out.println("There is no such number");
@@ -226,7 +226,7 @@ public class Main {
     // 6. Создайте массив строк. Заполните его произвольными именами людей. Отсортируйте массив.
     // Результат выведите на консоль.
     static void sortArray() {
-        String[] names = {"Nikita", "Dasha", "Angelina", "Archill", "Egor"};
+        String[] names = {"Nikita", "Dasha", "Angelina", "Archil", "Egor"};
         Arrays.sort(names);
 
         System.out.println(Arrays.toString(names));
