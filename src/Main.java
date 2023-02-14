@@ -4,8 +4,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
-        increaseArrayElements();
-        crossTheChessBoard();
+        //increaseArrayElements(); // 1
+        //crossTheChessBoard(); // 2
+        //getSumOfAllElements(); // 4
+        outputDiagonals();
     }
 
 
@@ -43,6 +45,49 @@ public class Main {
             }
             System.out.println(Arrays.toString(finalArray[x]));
         }
+    }
+
+
+    static void getSumOfAllElements() {
+        int[][] array = {
+                {1, 2, 3, 5},
+                {8, 11, 10, -5}
+        };
+        int sum = 0;
+
+        for(int i = 0; i < array.length; i++) {
+            for(int y = 0; y < array[i].length; y++) {
+                sum += array[i][y];
+            }
+        }
+        System.out.println(sum);
+    }
+
+    static void outputDiagonals() {
+        int[][] array = {
+                {1, 2, 3, 4, 5},
+                {2, 3, 4, 5, 6},
+                {3, 4, 5, 6, 7},
+                {9, 0, 1, 5, 2},
+                {0, 1, 3, 4, 9},
+        };
+        int[] firstDiagonal = new int[array.length];
+        for (int i = 0; i < array.length; i++) {
+            for(int y = i; y < array[i].length; y++) {
+                firstDiagonal[i] = array[i][y];
+                break;
+            }
+        }
+        System.out.println(Arrays.toString(firstDiagonal));
+
+        int[] secondDiagonal = new int[array.length];
+        for (int i = array.length - 1; i >= 0; i--) {
+            for(int y = 0; y < array[i].length;) {
+                secondDiagonal[y] = array[i][++y];
+                break;
+            }
+        }
+        System.out.println(Arrays.toString(secondDiagonal));
     }
 }
 
