@@ -7,7 +7,8 @@ public class Main {
         //increaseArrayElements(); // 1
         //crossTheChessBoard(); // 2
         //getSumOfAllElements(); // 4
-        outputDiagonals();
+        //outputDiagonals(); // 5
+        //sortTwoDimMassive(); // 6
     }
 
 
@@ -55,9 +56,9 @@ public class Main {
         };
         int sum = 0;
 
-        for(int i = 0; i < array.length; i++) {
-            for(int y = 0; y < array[i].length; y++) {
-                sum += array[i][y];
+        for (int[] ints : array) {
+            for (int y = 0; y < ints.length; y++) {
+                sum += ints[y];
             }
         }
         System.out.println(sum);
@@ -65,15 +66,18 @@ public class Main {
 
     static void outputDiagonals() {
         int[][] array = {
-                {1, 2, 3, 4, 5},
-                {2, 3, 4, 5, 6},
-                {3, 4, 5, 6, 7},
-                {9, 0, 1, 5, 2},
-                {0, 1, 3, 4, 9},
+                {1, 2, 3, 4, 6, 8, 9, 0},
+                {1, 2, 3, 5, 7, 9, 1, 8},
+                {1, 2, 3, 1, 2, 3, 2, 1},
+                {1, 2, 3, 1, 2, 3, 5, 8},
+                {1, 2, 3, 1, 2, 3, 0, 1},
+                {1, 2, 3, 1, 2, 3, 2, 1},
+                {1, 2, 3, 1, 2, 3, 2, 1},
+                {1, 2, 3, 1, 2, 3, 2, 1}
         };
         int[] firstDiagonal = new int[array.length];
         for (int i = 0; i < array.length; i++) {
-            for(int y = i; y < array[i].length; y++) {
+            for(int y = i; ; ) {
                 firstDiagonal[i] = array[i][y];
                 break;
             }
@@ -81,13 +85,25 @@ public class Main {
         System.out.println(Arrays.toString(firstDiagonal));
 
         int[] secondDiagonal = new int[array.length];
-        for (int i = array.length - 1; i >= 0; i--) {
-            for(int y = 0; y < array[i].length;) {
-                secondDiagonal[y] = array[i][++y];
+        for (int i = 0; i < array.length; i++) {
+            for(int y = array[i].length-1 - i; ;) {
+                secondDiagonal[i] = array[i][y];
                 break;
             }
         }
         System.out.println(Arrays.toString(secondDiagonal));
+    }
+
+    static void sortTwoDimMassive() {
+        int[][] array = {
+                {1, 10, 9, 200, 11, 0, 16},
+                {2, 101, -1, 11, 11, 1, 22},
+        };
+
+        for (int[] ints : array) {
+            Arrays.sort(ints);
+            System.out.println(Arrays.toString(ints));
+        }
     }
 }
 
