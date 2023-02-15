@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -9,6 +10,7 @@ public class Main {
         //getSumOfAllElements(); // 4
         //outputDiagonals(); // 5
         //sortTwoDimMassive(); // 6
+        guessWord();
     }
 
 
@@ -104,6 +106,68 @@ public class Main {
             Arrays.sort(ints);
             System.out.println(Arrays.toString(ints));
         }
+    }
+
+    static void guessWord() {
+        String[] words = new String[] {
+          "America",
+          "Minsk",
+          "Apple",
+          "Android",
+          "Tennis",
+          "Java",
+          "Temperature",
+          "Word",
+          "Microsoft",
+          "Window"
+        };
+
+        Random random = new Random();
+        int randomNum = random.nextInt(10);
+        String randomWord = words[randomNum];
+        String[] hiddenWord = new String[randomWord.length()];
+
+
+        Arrays.fill(hiddenWord, "*");
+        System.out.println("The game has started");
+        System.out.println("The random word is " + randomWord);
+        String guessedWord = enterAValue(randomWord, hiddenWord);
+        System.out.println("You guessed the word!It's " + guessedWord);
+    }
+
+    static String enterAValue(String randomWord, String[] hiddenWord) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.print("Enter a letter or a word: ");
+        String enteredValue = scanner.nextLine();
+        System.out.println("Entered value: " + enteredValue + ", value length: " + enteredValue.length());
+        System.out.println("hiddenWord: " + Arrays.toString(hiddenWord));
+        if (enteredValue.length() == 1) {
+//            char[] arrayFromRndmWord = randomWord.toCharArray();
+            for (int i = 0; i < randomWord.length(); i++) {
+                System.out.println("entered value: " + enteredValue + " ," + "compared value: " + randomWord);
+                int index = randomWord.indexOf(enteredValue);
+                if (index >= 0) {
+                    System.out.println("IN");
+                    hiddenWord[index] = enteredValue;
+
+                    System.out.println("You guessed the letter. Let's have more!");
+                    return enterAValue(randomWord, hiddenWord);
+                } else {
+
+                }
+            }
+        } else if (enteredValue.length() > 1 && enteredValue.toLowerCase().equals(randomWord.toLowerCase())) {
+//            System.out.println("Congratulations, you guessed the word");
+            return randomWord;
+        } else if (enteredValue.length() > 1 && !enteredValue.toLowerCase().equals(randomWord.toLowerCase())) {
+            System.out.println("Unfortunately, the word is incorrect. Try again.");
+            return enterAValue(randomWord, hiddenWord);
+        }
+
+        return Arrays.asList(hiddenWord).contains("*") ? enterAValue(randomWord, hiddenWord) : randomWord;
+        //
     }
 }
 
