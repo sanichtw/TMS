@@ -1,18 +1,19 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        printANumber(); // 0. Создайте массив целых чисел. Напишете программу, которая выводит
+        //printANumber(); // 0. Создайте массив целых чисел. Напишете программу, которая выводит
         // сообщение о том, входит ли заданное число в массив или нет. Пусть
         // число для поиска задается с консоли (класс Scanner).
 
-        removeNumber(); // 1. Создайте массив целых чисел. Удалите все вхождения заданного числа из массива.
+        //removeNumber(); // 1. Создайте массив целых чисел. Удалите все вхождения заданного числа из массива.
         // Пусть число задается с консоли (класс Scanner). Если такого числа нет - выведите сообщения об этом.
         // В результате должен быть новый массив без указанного числа.
 
-        findMaxMinAverageVal(); // 2. Создайте и заполните массив случайным числами и выведете
+        //findMaxMinAverageVal(); // 2. Создайте и заполните массив случайным числами и выведете
         // максимальное, минимальное и среднее значение. Для генерации случайного числа используйте метод Math.random().
         // Пусть будет возможность создавать массив произвольного размера. Пусть размер массива вводится с консоли.
 
@@ -20,16 +21,16 @@ public class Main {
         // отдельных строках. Посчитайте среднее арифметическое элементов каждого массива и сообщите, для какого
         // из массивов это значение оказалось больше (либо сообщите, что их средние арифметические равны).
 
-        createAndCheckArray(); // 4. Создайте массив из n случайных целых чисел и выведите его на экран. Размер массива пусть
+        //createAndCheckArray(); // 4. Создайте массив из n случайных целых чисел и выведите его на экран. Размер массива пусть
         // задается с консолии размер массива может быть больше 5 и меньше или равно 10. Если n не удовлетворяет
         // условию - выведите сообщение об этом. Если пользователь ввёл не подходящее число, то программа должна
         // просить пользователя повторить ввод. Создайте второй массив только из чётных элементов первого массива,
         // если они там есть, и вывести его на экран.
 
-        replaceElWithOddIndex(); // 5. Создайте массив и заполните массив. Выведите массив на экран в строку.
+        //replaceElWithOddIndex(); // 5. Создайте массив и заполните массив. Выведите массив на экран в строку.
         // Замените каждый элемент с нечётным индексом на ноль. Снова выведете массив на экран на отдельной строке.
 
-        sortArray(); // 6. Создайте массив строк. Заполните его произвольными именами людей. Отсортируйте массив.
+        //sortArray(); // 6. Создайте массив строк. Заполните его произвольными именами людей. Отсортируйте массив.
         // Результат выведите на консоль.
     }
 
@@ -44,7 +45,7 @@ public class Main {
         // filling the array with random numbers
         int[] arrayOfIntegers = new int[10];
         for(int i = 0; i < arrayOfIntegers.length; i++) {
-            arrayOfIntegers[i] = (int) (Math.random() * 10);
+            arrayOfIntegers[i] = new Random().nextInt(0, 11);
         }
 
         System.out.print("0. Enter any number from 0 to 10 to find out if the specified number is in the array: ");
@@ -75,28 +76,33 @@ public class Main {
 
         // filling the array with random numbers
         int[] arrayOfIntegers = new int[10];
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        for(int i = 0; i < arrayOfIntegers.length; i++) {
-            arrayOfIntegers[i] = (int) (Math.random() * 10);
-        }
+        int found = 0;
 
+        for (int i = 0; i < arrayOfIntegers.length; i++) {
+            arrayOfIntegers[i] = new Random().nextInt(0, 11);
+        }
+        System.out.println(Arrays.toString(arrayOfIntegers));
         System.out.print("1. Enter any number from 0 to 10 to delete all occurrences of a given number: ");
+
         int randomInt = scanner.nextInt();
 
         // finding a value
-        for(int i = 0; i < arrayOfIntegers.length; i++) {
-            if (randomInt != arrayOfIntegers[i]) {
-                arrayList.add(arrayOfIntegers[i]);
+        for (int i = 0; i < arrayOfIntegers.length; i++) {
+            if (randomInt == arrayOfIntegers[i]) {
+                found++;
             }
         }
+
         // the result is output to the console
-        if (arrayList.size() < arrayOfIntegers.length) {
-            System.out.println(randomInt + " deleted from " + arrayList);
-            System.out.println(arrayList);
-        } else {
-            System.out.println("There is no such number");
+        int[] finalArray = new int[arrayOfIntegers.length - found];
+        for (int i = 0, k = -1; i < arrayOfIntegers.length; i++) {
+            if (randomInt != arrayOfIntegers[i]) {
+                finalArray[++k] = arrayOfIntegers[i];
+            }
         }
-        System.out.println("______________________");
+
+            System.out.println(Arrays.toString(finalArray));
+            System.out.println("______________________");
     }
 
 
@@ -108,24 +114,25 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("2. Enter the length of the array: ");
         int randomNum = scanner.nextInt();
-        int minInt, maxInt, average = 0;
+        int minInt, maxInt;
+        double average = 0.0;
 
 
         // filling the array with random numbers
         int[] arrayOfIntegers = new int[randomNum];
         for(int i = 0; i < arrayOfIntegers.length; i++) {
-            arrayOfIntegers[i] = (int) (Math.random() * 100);
+            arrayOfIntegers[i] = new Random().nextInt(0, 101);
             average += arrayOfIntegers[i];
         }
         Arrays.sort(arrayOfIntegers);
+        System.out.println(Arrays.toString(arrayOfIntegers));
 
 
         // We find the minimum, maximum and average values
         minInt = arrayOfIntegers[0];
         maxInt = arrayOfIntegers[arrayOfIntegers.length - 1];
         average = average / arrayOfIntegers.length;
-        System.out.printf("Min integer: %d, Max integer: %d, average: %d", minInt, maxInt, average);
-        System.out.println();
+        System.out.printf("Min integer: %d, Max integer: %d, average: %f\n", minInt, maxInt, average);
         System.out.println("Array size " + arrayOfIntegers.length);
         System.out.println("______________________");
     }
@@ -144,20 +151,22 @@ public class Main {
 
         // filling in arrays
         for(int i = 0; i < firstArray.length; i++) {
-            firstArray[i] = (int) (Math.random() * 10);
+            firstArray[i] = new Random().nextInt(0, 11);
             firstAverageValue += firstArray[i];
-            secondArray[i] = (int) (Math.random() * 10);
+            secondArray[i] = new Random().nextInt(0, 11);;
             secondAverageValue += secondArray[i];
         }
 
         // the result is output to the console
+        double firstArithmeticMean = (double) firstAverageValue / firstArray.length;
+        double secondArithmeticMean = (double) secondAverageValue / secondArray.length;
         System.out.printf("First array: %s", Arrays.toString(firstArray));
         System.out.println();
         System.out.printf("Second Array: %s", Arrays.toString(secondArray));
         System.out.println();
-        System.out.println("Arithmetic mean of the first array: " + firstAverageValue / 5);
-        System.out.println("Arithmetic mean of the second array: " + secondAverageValue / 5);
-        System.out.println(firstAverageValue / 5 > secondAverageValue / 5 ?
+        System.out.println("Arithmetic mean of the first array: " + firstArithmeticMean);
+        System.out.println("Arithmetic mean of the second array: " + secondArithmeticMean);
+        System.out.println(firstArithmeticMean > secondArithmeticMean ?
                 "The arithmetic mean of the first array is greater than the second" :
                 "The arithmetic mean of the second array is greater than the first");
         System.out.println("______________________");
