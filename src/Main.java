@@ -5,15 +5,15 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        //printANumber(); // 0. Создайте массив целых чисел. Напишете программу, которая выводит
+        printANumber(); // 0. Создайте массив целых чисел. Напишете программу, которая выводит
         // сообщение о том, входит ли заданное число в массив или нет. Пусть
         // число для поиска задается с консоли (класс Scanner).
 
-        //removeNumber(); // 1. Создайте массив целых чисел. Удалите все вхождения заданного числа из массива.
+        removeNumber(); // 1. Создайте массив целых чисел. Удалите все вхождения заданного числа из массива.
         // Пусть число задается с консоли (класс Scanner). Если такого числа нет - выведите сообщения об этом.
         // В результате должен быть новый массив без указанного числа.
 
-        //findMaxMinAverageVal(); // 2. Создайте и заполните массив случайным числами и выведете
+        findMaxMinAverageVal(); // 2. Создайте и заполните массив случайным числами и выведете
         // максимальное, минимальное и среднее значение. Для генерации случайного числа используйте метод Math.random().
         // Пусть будет возможность создавать массив произвольного размера. Пусть размер массива вводится с консоли.
 
@@ -21,16 +21,16 @@ public class Main {
         // отдельных строках. Посчитайте среднее арифметическое элементов каждого массива и сообщите, для какого
         // из массивов это значение оказалось больше (либо сообщите, что их средние арифметические равны).
 
-        //createAndCheckArray(); // 4. Создайте массив из n случайных целых чисел и выведите его на экран. Размер массива пусть
+        createAndCheckArray(); // 4. Создайте массив из n случайных целых чисел и выведите его на экран. Размер массива пусть
         // задается с консолии размер массива может быть больше 5 и меньше или равно 10. Если n не удовлетворяет
         // условию - выведите сообщение об этом. Если пользователь ввёл не подходящее число, то программа должна
         // просить пользователя повторить ввод. Создайте второй массив только из чётных элементов первого массива,
         // если они там есть, и вывести его на экран.
 
-        //replaceElWithOddIndex(); // 5. Создайте массив и заполните массив. Выведите массив на экран в строку.
+        replaceElWithOddIndex(); // 5. Создайте массив и заполните массив. Выведите массив на экран в строку.
         // Замените каждый элемент с нечётным индексом на ноль. Снова выведете массив на экран на отдельной строке.
 
-        //sortArray(); // 6. Создайте массив строк. Заполните его произвольными именами людей. Отсортируйте массив.
+        sortArray(); // 6. Создайте массив строк. Заполните его произвольными именами людей. Отсортируйте массив.
         // Результат выведите на консоль.
     }
 
@@ -40,16 +40,16 @@ public class Main {
     // сообщение о том, входит ли заданное число в массив или нет. Пусть
     // число для поиска задается с консоли (класс Scanner).
     static void printANumber() {
-        Scanner scanner = new Scanner(System.in);
-
         // filling the array with random numbers
         int[] arrayOfIntegers = new int[10];
         for(int i = 0; i < arrayOfIntegers.length; i++) {
             arrayOfIntegers[i] = new Random().nextInt(0, 11);
         }
 
+        Scanner scanner = new Scanner(System.in);
         System.out.print("0. Enter any number from 0 to 10 to find out if the specified number is in the array: ");
         int randomInt = scanner.nextInt();
+
         boolean found = false;
 
         // finding a value
@@ -72,8 +72,6 @@ public class Main {
     // Пусть число задается с консоли (класс Scanner). Если такого числа нет - выведите сообщения об этом.
     // В результате должен быть новый массив без указанного числа.
     static void removeNumber() {
-        Scanner scanner = new Scanner(System.in);
-
         // filling the array with random numbers
         int[] arrayOfIntegers = new int[10];
         int found = 0;
@@ -82,6 +80,7 @@ public class Main {
             arrayOfIntegers[i] = new Random().nextInt(0, 11);
         }
         System.out.println(Arrays.toString(arrayOfIntegers));
+        Scanner scanner = new Scanner(System.in);
         System.out.print("1. Enter any number from 0 to 10 to delete all occurrences of a given number: ");
 
         int randomInt = scanner.nextInt();
@@ -182,17 +181,27 @@ public class Main {
     static void createAndCheckArray() {
         int num = enterAnInteger();
         int[] array = new int[num];
-        ArrayList<Integer> evenArray = new ArrayList<>();
+//        ArrayList<Integer> evenArray = new ArrayList<>();
 
+        int numberOfOdd = 0;
         // fill in the array and check for parity
         for (int i = 0; i < array.length; i++) {
-            array[i] = (int) (Math.random() * 100);
-            if (array[i] % 2 == 0) evenArray.add(array[i]);
+            array[i] = new Random().nextInt(0, 101);
+            if (array[i] % 2 != 0) numberOfOdd++;;
+        }
+        System.out.println(Arrays.toString(array));
+
+        int[] evenArray = new int[array.length - numberOfOdd];
+        for (int i = 0, k = -1; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                evenArray[++k] = array[i];
+            }
         }
 
+
         // the result is output to the console
-        if (evenArray.size() > 0) {
-            System.out.println(evenArray);
+        if (evenArray.length > 0) {
+            System.out.println(Arrays.toString(evenArray));
         } else {
             System.out.println("There are no even numbers in the array");
         }

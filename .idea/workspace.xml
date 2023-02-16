@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86d2d624-207e-43f9-8863-75f4473f5c40" name="Changes" comment="did my homework04">
+    <list default="true" id="86d2d624-207e-43f9-8863-75f4473f5c40" name="Changes" comment="fixed my homework">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
@@ -153,7 +153,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676137466928</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="fixed my homework">
+      <created>1676483643701</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1676483643701</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -162,6 +169,7 @@
     <MESSAGE value="created new branch" />
     <MESSAGE value="did 2 tasks" />
     <MESSAGE value="did my homework04" />
-    <option name="LAST_COMMIT_MESSAGE" value="did my homework04" />
+    <MESSAGE value="fixed my homework" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed my homework" />
   </component>
 </project>
