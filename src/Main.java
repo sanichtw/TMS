@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
+        // 11
         //increaseArrayElements(); // 1
         //crossTheChessBoard(); // 2
         //getSumOfAllElements(); // 4
