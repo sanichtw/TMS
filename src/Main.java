@@ -4,13 +4,23 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        // 1122
-        //increaseArrayElements(); // 1
-        //crossTheChessBoard(); // 2
-        //getSumOfAllElements(); // 4
-        //outputDiagonals(); // 5
-        //sortTwoDimMassive(); // 6
-        guessWord();
+        increaseArrayElements(); // 1 Создать двухмерный массив из целых чисел. С помощью циклов "пройти" по
+        // всему массиву и увеличить каждый элемент на заданное число. Пусть число, на которое будет
+        // увеличиваться каждый элемент, задается из консоли.
+
+        crossTheChessBoard(); // 2 Шахматная доска
+
+        //multiplicationTwoArrays(); // 3 Умножение двух матриц
+
+        getSumOfAllElements(); // 4 Создайте двумерный массив целых чисел. Выведите на консоль сумму
+        // всех элементов массива.
+
+        outputDiagonals(); // 5 Создайте двумерный массив. Выведите на консоль диагонали массива.
+
+        sortTwoDimMassive(); // 6 Создайте двумерный массив целых чисел. Отсортируйте элементы в строках двумерного
+        // массива по возрастанию.
+
+        guessWord(); // game
     }
 
 
@@ -23,7 +33,6 @@ public class Main {
                 {1, 3, 5, 7},
                 {2, 4, 6, 8}
         };
-
         for(int i = 0; i < firstArray.length; i++) {
             for(int y = 0; y < firstArray[i].length; y++) {
                 firstArray[i][y] += num;
@@ -34,21 +43,48 @@ public class Main {
 
 
     static void crossTheChessBoard() {
-        String[] sourceArray = {"W", "B", "W", "B", "W", "B", "W", "B"};
-        String[] reverseArray = {"B", "W", "B", "W", "B", "W", "B", "W" };
-        String[][] finalArray = new String[8][8];
+        char[][] finalArray = new char[8][8];
+        char[] chars = {'W', 'B'};
 
         for(int x = 0; x < finalArray.length; x++) {
             for(int y = 0; y < finalArray[x].length; y++) {
-                if (x % 2 == 0) {
-                    finalArray[x][y] = sourceArray[y];
-                } else {
-                    finalArray[x][y] = reverseArray[y];
+                if (x % 2 == 0 && y % 2 == 0) {
+                    finalArray[x][y] = chars[0];
+                } else if (x % 2 == 0 && y % 2 != 0) {
+                    finalArray[x][y] = chars[1];
+                } else if (x % 2 != 0 && y % 2 == 0) {
+                    finalArray[x][y] = chars[1];
+                } else if (x % 2 != 0 && y % 2 != 0) {
+                    finalArray[x][y] = chars[0];
                 }
             }
             System.out.println(Arrays.toString(finalArray[x]));
         }
     }
+
+    /* static void multiplicationTwoArrays() {
+        int[][] firstArray = {
+                {1, 0, 0, 0},
+                {0, 1, 0, 0},
+                {0, 0, 0, 0}
+        };
+        int[][] secondArray = {
+                {1, 2, 3},
+                {1, 1, 1},
+                {0, 0, 0},
+                {2, 1, 0}
+        };
+        int[][] finalArray = new int[3][3];
+
+        for (int r = 0; r < firstArray.length; r++) {
+            for (int c = 0; c < secondArray[r].length; c++) {
+                for (int f = 0; f < finalArray[r].length; f++) {
+                    finalArray[r][f] += firstArray[r][c] * secondArray[c][f];
+                }
+            }
+        }
+        System.out.println(Arrays.deepToString(finalArray));
+    }  */
 
 
     static void getSumOfAllElements() {
@@ -122,52 +158,36 @@ public class Main {
           "Window"
         };
 
-        Random random = new Random();
-        int randomNum = random.nextInt(10);
+        int randomNum = new Random().nextInt(words.length);
         String randomWord = words[randomNum];
         String[] hiddenWord = new String[randomWord.length()];
 
 
         Arrays.fill(hiddenWord, "*");
         System.out.println("The game has started");
-        System.out.println("The random word is " + randomWord);
         String guessedWord = enterAValue(randomWord, hiddenWord);
-        System.out.println("You guessed the word!It's " + guessedWord);
+        System.out.println("You guessed the word! It's " + guessedWord);
     }
 
     static String enterAValue(String randomWord, String[] hiddenWord) {
         Scanner scanner = new Scanner(System.in);
-
-
-        System.out.print("Enter a letter or a word: ");
-        String enteredValue = scanner.nextLine();
-        System.out.println("Entered value: " + enteredValue + ", value length: " + enteredValue.length());
         System.out.println("hiddenWord: " + Arrays.toString(hiddenWord));
+        System.out.print("Enter a letter or a word: ");
+        String enteredValue = scanner.next();
         if (enteredValue.length() == 1) {
-//            char[] arrayFromRndmWord = randomWord.toCharArray();
-            for (int i = 0; i < randomWord.length(); i++) {
-                System.out.println("entered value: " + enteredValue + " ," + "compared value: " + randomWord);
-                int index = randomWord.indexOf(enteredValue);
-                if (index >= 0) {
-                    System.out.println("IN");
-                    hiddenWord[index] = enteredValue;
-
-                    System.out.println("You guessed the letter. Let's have more!");
-                    return enterAValue(randomWord, hiddenWord);
-                } else {
-
+            char[] arrayChars = randomWord.toLowerCase().toCharArray();
+            for (int i = 0; i < arrayChars.length; i++) {
+                if (enteredValue.toLowerCase().charAt(0) == arrayChars[i]) {
+                    hiddenWord[i] = String.valueOf(arrayChars[i]);
                 }
             }
         } else if (enteredValue.length() > 1 && enteredValue.toLowerCase().equals(randomWord.toLowerCase())) {
-//            System.out.println("Congratulations, you guessed the word");
             return randomWord;
         } else if (enteredValue.length() > 1 && !enteredValue.toLowerCase().equals(randomWord.toLowerCase())) {
             System.out.println("Unfortunately, the word is incorrect. Try again.");
             return enterAValue(randomWord, hiddenWord);
         }
-
         return Arrays.asList(hiddenWord).contains("*") ? enterAValue(randomWord, hiddenWord) : randomWord;
-        //
     }
 }
 
