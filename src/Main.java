@@ -161,9 +161,9 @@ public class Main {
         int randomNum = new Random().nextInt(words.length);
         String randomWord = words[randomNum];
         String[] hiddenWord = new String[randomWord.length()];
-
-
         Arrays.fill(hiddenWord, "*");
+
+
         System.out.println("The game has started");
         String guessedWord = enterAValue(randomWord, hiddenWord);
         System.out.println("You guessed the word! It's " + guessedWord);
