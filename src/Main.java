@@ -16,16 +16,16 @@ public class Main {
 
 
         // 2
-//        computer1.getFullInfo();
-        System.out.println("_____________");
-
-        RAM ramInfo = new RAM("Samsung DDR4", 8);
-        HDD hddInfo = new HDD("Kingston A400", "SATA", 1000);
-        Computer computer1 = new Computer(800, "Intel");
-        Computer computer2 = new Computer(1200, "AMD", ramInfo, hddInfo);
-
-        computer2.getFullInfo();
+//        RAM ramInfo = new RAM("Samsung DDR4", 8);
+//        HDD hddInfo = new HDD("Kingston A400", "SATA", 1000);
+//        Computer computer1 = new Computer(800, "Intel");
+//        Computer computer2 = new Computer(1200, "AMD", ramInfo, hddInfo);
 //
+//        computer1.getFullInfo();
+//        computer2.getFullInfo();
+
+        // 3
+            ATMMachine atmMachine = new ATMMachine(1000, 400, 100);
     }
 }
 
