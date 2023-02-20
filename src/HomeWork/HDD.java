@@ -1,3 +1,5 @@
+package HomeWork;
+
 public class HDD {
     public String name;
     public String type;

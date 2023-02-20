@@ -1,26 +1,28 @@
+package HomeWork;
+
 public class CreditCard {
     private double currentSum;
     private String accountNumber;
 
-    CreditCard() {
+    public CreditCard() {
         currentSum = 0;
         accountNumber = "5555 1111 2222 4444";
     }
 
-    CreditCard(double currentSum, String accountNumber) {
+    public CreditCard(double currentSum, String accountNumber) {
         this.currentSum = currentSum;
         this.accountNumber = accountNumber;
     }
 
-    void depositAccount(double sum) {
+    public void depositAccount(double sum) {
         this.currentSum += sum;
     }
 
-    void withdrawMoney(double sum) {
+    public void withdrawMoney(double sum) {
         this.currentSum -= sum;
     }
 
-    void getAccountBalance() {
+    public void getAccountBalance() {
         System.out.println("Card #" + accountNumber + ", balance - " + this.currentSum);
     }
 }

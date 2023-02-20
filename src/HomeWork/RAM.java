@@ -1,3 +1,5 @@
+package HomeWork;
+
 public class RAM {
     public String name;
     public int capacity;

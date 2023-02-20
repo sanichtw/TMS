@@ -1,6 +1,8 @@
+package HomeWork;
+
 public class Computer {
-    public double price;
-    public String model;
+    private double price;
+    private String model;
     public RAM ram;
     public HDD hdd;
 
