@@ -23,15 +23,15 @@ public class Main {
 
         // Task 2
         Car[] cars = {new Car("BWM", "Black", 2005, 250),
-                new Car("Audi", "White", 2012, 312),
-                new Car("Mazda", "Black", 1999, 240),
-                new Car("KIA", "Red", 2008, 280),
+                      new Car("Audi", "White", 2012, 312),
+                      new Car("Mazda", "Black", 1999, 240),
+                      new Car("KIA", "Red", 2008, 280),
         };
 
         Car[] cars2 = {new Car("Opel", "Blue", 1992, 200),
-                new Car("Reno", "Grey", 2002, 240),
-                new Car("Daewoo", "Black", 1989, 180),
-                new Car("Mercedes", "Grey", 2015, 300),
+                       new Car("Reno", "Grey", 2002, 240),
+                       new Car("Daewoo", "Black", 1989, 180),
+                       new Car("Mercedes", "Grey", 2015, 300),
         };
 
         Car oldest = cars[0];
