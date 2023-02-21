@@ -61,9 +61,4 @@ public class Main {
         System.out.println("The fastest car is " + fastest.getModel() + ", max speed: " +
                 fastest.getMaxSpeed());
     }
-
-
-
-
-
 }
