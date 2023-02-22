@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        increaseArrayElements(); // 1 Создать двухмерный массив из целых чисел. С помощью циклов "пройти" по
+        //increaseArrayElements(); // 1 Создать двухмерный массив из целых чисел. С помощью циклов "пройти" по
         // всему массиву и увеличить каждый элемент на заданное число. Пусть число, на которое будет
         // увеличиваться каждый элемент, задается из консоли.
 
@@ -12,15 +12,15 @@ public class Main {
 
         //multiplicationTwoArrays(); // 3 Умножение двух матриц
 
-        getSumOfAllElements(); // 4 Создайте двумерный массив целых чисел. Выведите на консоль сумму
+        //getSumOfAllElements(); // 4 Создайте двумерный массив целых чисел. Выведите на консоль сумму
         // всех элементов массива.
 
-        outputDiagonals(); // 5 Создайте двумерный массив. Выведите на консоль диагонали массива.
+        //outputDiagonals(); // 5 Создайте двумерный массив. Выведите на консоль диагонали массива.
 
-        sortTwoDimMassive(); // 6 Создайте двумерный массив целых чисел. Отсортируйте элементы в строках двумерного
+        //sortTwoDimMassive(); // 6 Создайте двумерный массив целых чисел. Отсортируйте элементы в строках двумерного
         // массива по возрастанию.
 
-        guessWord(); // game
+        //guessWord(); // game
     }
 
 
@@ -48,14 +48,10 @@ public class Main {
 
         for(int x = 0; x < finalArray.length; x++) {
             for(int y = 0; y < finalArray[x].length; y++) {
-                if (x % 2 == 0 && y % 2 == 0) {
+                if ((x % 2 == 0 && y % 2 == 0) || (x % 2 != 0 && y % 2 != 0)) {
                     finalArray[x][y] = chars[0];
-                } else if (x % 2 == 0 && y % 2 != 0) {
+                } else if ((x % 2 == 0 && y % 2 != 0) || (x % 2 != 0 && y % 2 == 0)) {
                     finalArray[x][y] = chars[1];
-                } else if (x % 2 != 0 && y % 2 == 0) {
-                    finalArray[x][y] = chars[1];
-                } else if (x % 2 != 0 && y % 2 != 0) {
-                    finalArray[x][y] = chars[0];
                 }
             }
             System.out.println(Arrays.toString(finalArray[x]));
