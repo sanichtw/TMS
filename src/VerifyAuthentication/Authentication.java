@@ -1,7 +1,7 @@
 package VerifyAuthentication;
 
-import Exeptions.WrongLoginException;
-import Exeptions.WrongPasswordException;
+import Exceptions.WrongLoginException;
+import Exceptions.WrongPasswordException;
 
 public class Authentication {
     public boolean verifyAuthentication(String login, String password, String confirmPassword) {
