@@ -35,5 +35,16 @@ public class PartTwo {
 
         System.out.println("\nОтсортировать и вывести на экран первых 4 элемента");
         System.out.println(randomNumbers.stream().limit(4).collect(Collectors.toList()));
+
+
+        System.out.println("\nВывести количество элементов в стриме");
+        System.out.println(randomNumbers.stream().count());
+
+        System.out.println("\nВывести среднее арифметическое всех чисел в стриме");
+
+        int count = randomNumbers.stream().reduce((s1, s2) -> s1 + s2).orElse(0);
+        System.out.println(count);
+        System.out.println(randomNumbers.size());
+        System.out.println(count / randomNumbers.size());
     }
 }

@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.function.Consumer;
 import java.util.function.Supplier;
 
+import static AdditionalTask.AdditionalTask.task2;
 import static PartOne.PartOne.*;
 import static PartTwo.PartTwo.task1;
 
@@ -20,9 +21,12 @@ public class Main {
         //practice("text");
 
         // Part 2
-        task1();
+        //task1();
+
+        task2();
 
     }
+
 
 
 
