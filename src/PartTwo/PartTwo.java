@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class PartTwo {
 
     // 1.
-    public static void task1() {
+    public static void partTwo() {
         ArrayList<Integer> randomNumbers = new ArrayList<>();
 
         System.out.println("Удалить дубликаты");
@@ -41,10 +41,8 @@ public class PartTwo {
         System.out.println(randomNumbers.stream().count());
 
         System.out.println("\nВывести среднее арифметическое всех чисел в стриме");
-
-        int count = randomNumbers.stream().reduce((s1, s2) -> s1 + s2).orElse(0);
-        System.out.println(count);
-        System.out.println(randomNumbers.size());
+        int count = randomNumbers.stream().reduce(Integer::sum).orElse(0);
         System.out.println(count / randomNumbers.size());
+
     }
 }

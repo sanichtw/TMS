@@ -7,6 +7,18 @@ import java.util.Scanner;
 import java.util.function.Consumer;
 
 public class PartOne {
+
+    public static void partOne() {
+        // 1. Написать программу для вывода на консоль названия дня недели по введенной дате.
+        getDate(new Date(2023-1900, 03, 01));
+
+        // 2. Написать программу для вывода на экран дату следующего вторника.
+        getDateOfNextTuesday();
+
+        // 3.
+        practice("text");
+    }
+
     // 1. Написать программу для вывода на консоль названия дня недели по введенной дате.
     public static void getDate(Date date) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
